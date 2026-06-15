@@ -9,7 +9,7 @@ def download_youtube_audio(url :str) ->str:
     output_path = os.path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s")
     ydl_opts = {
         "format": "bestaudio/best",
-        "ffmpeg_location": r"C:\Users\Akansha\Downloads\AI_Video_Assistant\ffmpeg\bin",
+        "ffmpeg_location": "ffmpeg",
         "outtmpl": output_path,
         "postprocessors": [
             {
