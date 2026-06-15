@@ -1,4 +1,4 @@
-
+import whisper
 import os
 import requests
 from pydub import AudioSegment
@@ -89,8 +89,18 @@ def transcribe_chunk_sarvam(chunk_path: str) -> str:
     return full_text.strip()
 
    
-def transcribe_chunk(chunk_path, language="english"):
-    return transcribe_chunk_sarvam(chunk_path)
+
+
+
+def transcribe_chunk(chunk_path: str, language: str = "english") -> str:
+    """
+    Route one chunk to Whisper or Sarvam depending on language choice.
+    - english  → Whisper (local model)
+    - hinglish → Sarvam (translates to English while transcribing)
+    """
+    if language.lower() == "hinglish":
+        return transcribe_chunk_sarvam(chunk_path)
+    return transcribe_chunk_whisper(chunk_path)
 
 
 def transcribe_all(chunks: list, language: str = "english") -> str:
