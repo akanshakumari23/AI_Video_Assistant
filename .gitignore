@@ -1,0 +1,12 @@
+venv/
+.idea/
+__pycache__/
+.env
+
+ffmpeg/
+downloades/
+vector_db/
+
+*.wav
+*.mp3
+*.mp4
